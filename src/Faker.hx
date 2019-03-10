@@ -41,7 +41,7 @@ class Faker {
 			case TAbstract(_.get() => {pack: [], name: "Bool"}, []):
 				macro Random.bool();
 			case TInst(_.get() => {pack: [], name: "String"}, []):
-				macro Random.string(100, "abcdefghilmnopqrstuvz1234567890");
+				macro Random.string(100);
 
 			case TInst(_.get() => {pack: [], name: "Array"}, _ => sub): {
 					switch (sub) {
@@ -49,7 +49,7 @@ class Faker {
 								switch (name) {
 									case "Bool": macro [Random.bool()];
 									case "Int" | "Float": macro [Random.int(0, 100)];
-									case "String": macro [Random.string(100, "abcdefghilmnopqurstuvz1234567890")];
+									case "String": macro [Random.string(100)];
 									case _: macro [];
 								}
 							}
