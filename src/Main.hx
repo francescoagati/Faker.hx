@@ -12,7 +12,7 @@ typedef A = {
 	atp1:Array<Tp1>,
 	e:Array<Int>,
 	f:{
-		g:Array<Bool>, ?h:String,
+		g:Array<Bool>, ?h:String,y:Array<String>
 	},
 	?i:Int,
 }

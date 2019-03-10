@@ -45,14 +45,20 @@ class Faker {
 
 			case TInst(_.get() => {pack: [], name: "Array"}, _ => sub): {
 					switch (sub) {
-						case [TAbstract(_.get() => {pack: [], name: name}, [])]: {
+						case [TAbstract(_.get() => {pack: [], name: name}, [])]: 
 								switch (name) {
 									case "Bool": macro [Random.bool()];
 									case "Int" | "Float": macro [Random.int(0, 100)];
+									case _: macro [];
+								}
+
+						case [TInst(_.get() => {pack: [], name: name}, [])]: 
+								switch (name) {
 									case "String": macro [Random.string(100)];
 									case _: macro [];
 								}
-							}
+
+
 						case [tp]: {
 								var path = tp.toString();
 								var expr = Context.parseInlineString('Faker.make($path)', Context.currentPos());
