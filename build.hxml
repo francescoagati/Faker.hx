@@ -1,0 +1,8 @@
+-cp src
+-D analyzer-optimize
+-D analyzer-module
+-main Main
+-js main.js
+-lib random
+-dce full
+-cmd node main.js
